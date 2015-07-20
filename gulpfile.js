@@ -40,7 +40,6 @@ function makeES6CompileTask(sourceDirectory) {
       .pipe(sourcemaps.write('.', {
         sourceRoot: function(file) {
           // we have to go the right number of directories up
-          console.log(file.relative);
           var depth = file.relative.split(path.sep).length + 2;
           var rootRelativePath = _.range(0, depth).map(function() { return '..' + path.sep;} ).join('');
           return rootRelativePath + sourceDirectory;
