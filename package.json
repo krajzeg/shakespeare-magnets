@@ -1,0 +1,37 @@
+{
+  "name": "shakespeare-magnets",
+  "version": "1.0.0",
+  "description": "Multi-user fridge magnet application written using Unison as a demonstration.",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "start": "gulp && node bin/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krajzeg/shakespeare-magnets"
+  },
+  "keywords": [
+    "magnets",
+    "shakespeare",
+    "unison"
+  ],
+  "author": "Jakub Wasilewski <wasyl@wasyl.eu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krajzeg/shakespeare-magnets/issues"
+  },
+  "homepage": "https://github.com/krajzeg/shakespeare-magnets",
+  "dependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.0",
+    "consolidate": "^0.13.1",
+    "del": "^1.2.0",
+    "express": "^4.13.1",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "hogan.js": "^3.0.2",
+    "lodash": "^3.10.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

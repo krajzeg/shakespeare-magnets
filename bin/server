@@ -1,0 +1,8 @@
+#!/usr/local/bin/node
+
+var app = require('../dist/src/server');
+
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Server started on port " + port + ".");
+});
