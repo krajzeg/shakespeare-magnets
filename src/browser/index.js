@@ -34,7 +34,7 @@ class Magnet {
 
   createElement() {
     let $elem = $("<div class='magnet'></div>");
-    $elem.appendTo($('body'));
+    $elem.appendTo($('#magnets'));
     return $elem;
   }
 

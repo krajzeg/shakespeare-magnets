@@ -7,5 +7,6 @@
         <script src="/scripts/main.js"></script>
     </head>
     <body>
+        <div id="magnets"></div>
     </body>
 </html>
