@@ -10,12 +10,12 @@ gulp.task('test', ['compile'], function() {
 			.pipe(mocha());
 });
 
-gulp.task('compile', ['compile-browser', 'compile-server']);
+gulp.task('compile', ['compile-browser', 'compile-server', 'compile-magnets']);
 
 gulp.task('clean-server', makeCleanTask('dist/server'));
 gulp.task('compile-server', ['clean-server'], makeES6CompileTask('src/server'));
-gulp.task('clean-server', makeCleanTask('dist/magnets'));
-gulp.task('compile-server', ['clean-server'], makeES6CompileTask('src/magnets'));
+gulp.task('clean-magnets', makeCleanTask('dist/magnets'));
+gulp.task('compile-magnets', ['clean-server'], makeES6CompileTask('src/magnets'));
 
 gulp.task('compile-browser', makeBrowserifyTask('src/browser/index.js', 'main.js'));
 

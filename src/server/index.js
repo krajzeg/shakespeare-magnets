@@ -27,8 +27,10 @@ function setupExpressApp() {
   app.set('view engine', 'hjs');
 
   // static files served
+  let publicFilesPath = path.join(process.cwd(), 'public');
   let compiledScriptsPath = path.join(process.cwd(), 'dist/browser');
   app.use('/scripts', express.static(compiledScriptsPath));
+  app.use('/public', express.static(publicFilesPath));
 
   // actual pages
   app.get('/', require('./routes/main'));
