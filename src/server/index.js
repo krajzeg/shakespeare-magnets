@@ -42,8 +42,8 @@ function setupUnisonServer(wsServer) {
   let $$ = unison({})
     .plugin(unisonServerPlugin({
       communication: new UnisonWebSocketServer(wsServer),
-      commands: {},
-      intents: {}
+      commands: require('../magnets/commands'),
+      intents: require('../magnets/intents')
     }));
 
   let setupInitialState = require('../magnets/setup-initial-state');
