@@ -44,7 +44,8 @@ function setupUnisonServer(wsServer) {
       intents: {}
     }));
 
-  $$('').add('test', {its: 'alive'});
+  let setupInitialState = require('../magnets/setup-initial-state');
+  setupInitialState($$);
 
   return $$;
 }
