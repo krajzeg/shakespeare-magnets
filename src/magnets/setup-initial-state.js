@@ -1,6 +1,5 @@
 let _ = require('lodash');
-
-const LETTERS = "abcdefghijklmnopqrstuvwxyzaeiou";
+let randomWord = require('./random-word');
 
 export default function setupInitialState($$) {
   $$('').add('magnets', {});
@@ -10,17 +9,13 @@ export default function setupInitialState($$) {
   });
 }
 
-function randomInt(low, high) {
-  return Math.floor(randomFloat(low, high));
+function randomMagnet() {
+  return {
+    x: randomFloat(10, 90), y: randomFloat(10, 90),
+    word: randomWord()
+  }
 }
 
 function randomFloat(low, high) {
   return Math.random() * (high - low) + low;
-}
-
-function randomMagnet() {
-  return {
-    x: randomFloat(10, 90), y: randomFloat(10, 90),
-    word: LETTERS[randomInt(0, LETTERS.length)]
-  }
 }
