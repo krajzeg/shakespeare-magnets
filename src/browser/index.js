@@ -42,6 +42,11 @@ class Magnet {
       }
     });
 
+    // randomizing
+    $elem.dblclick(() => {
+      this.node.pleaseRandomize();
+    });
+
     return $elem;
   }
 

@@ -4,7 +4,7 @@ let randomWord = require('./random-word');
 export default function setupInitialState($$) {
   $$('').add('magnets', {});
 
-  _.each(_.range(0, 100), () => {
+  _.each(_.range(0, 75), () => {
     $$('magnets').add(randomMagnet());
   });
 }
