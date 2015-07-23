@@ -1,26 +1,7 @@
 html, body {
     margin: 0; padding: 0;
     background: #ffffff;
-}
-
-.instructions {
-    color: #99aacc;
-    font-size: 3vh;
-    margin: 5vh auto;
-    text-align: center;
-}
-
-#whiteboard {
-    background: white;
-
-    margin: 4.5vh auto;
-    width: 120vh;
-    height: 80vh;
-    padding: 1.5vh;
-
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 3px 8px 0 rgba(0,0,0,0.2);
+    font-family: 'PT Serif', sans-serif;
 }
 
 #magnets {
@@ -37,7 +18,8 @@ html, body {
 
 .magnet {
     position: absolute;
-    font: 2vh 'PT Serif', sans-serif;
+    z-index: 10;
+    font-size: 2vh;
     padding: 0.1vh 0.5vh;
     border: 1px solid #aaa;
     box-shadow: 0px 1px 1px 0 rgba(0,0,0,0.2);
@@ -54,4 +36,25 @@ html, body {
 .magnet.is-dragged {
     background: #cef;
     transition: none;
+}
+
+
+.instructions {
+    color: #99aacc;
+    font-size: 2.5vh;
+    margin: 3vh auto;
+    text-align: center;
+}
+
+#whiteboard {
+    background: white;
+
+    margin: 3vh auto 0;
+    width: 129vh;
+    height: 86vh;
+    padding: 1.5vh;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 3px 8px 0 rgba(0,0,0,0.2);
 }
