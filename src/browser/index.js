@@ -1,23 +1,22 @@
 let unison = require('unison');
-let WebsocketComm = require('unison-websocket-browser');
+let UnisonWS = require('unison-websocket-browser');
 let magnets = require('../magnets');
 
 let serverUrl = window.location.toString().replace(/https?/, 'ws');
 
-let state = window.$$ = unison({});
+let $$ = window.$$ = unison({});
 $$.plugin(unison.client({
-  communication: new WebsocketComm(serverUrl, {debug: true}),
+  communication: new UnisonWS(serverUrl, {debug: true}),
   commands: magnets.commands,
   intents: magnets.intents
 }));
 
-class Magnet {
-  static initialize() {
-    $$('magnets').on('childAdded', (id) => {
-      new Magnet($$('magnets').child(id));
-    });
-  }
 
+$$('magnets').on('childAdded', (id) => {
+  new Magnet($$('magnets').child(id));
+});
+
+class Magnet {
   constructor($$magnet) {
     this.node = $$magnet;
     this.$div = this.createElement();
@@ -62,13 +61,9 @@ class Magnet {
 
   attemptMove() {
     let {left, top} = this.$div.position();
-    console.log(left, top);
     let leftInPct = left * 100 / $('#magnets').width();
     let topInPct = top * 100 / $('#magnets').height();
 
     this.node.pleaseMoveTo(leftInPct, topInPct);
   }
 }
-
-Magnet.initialize();
-

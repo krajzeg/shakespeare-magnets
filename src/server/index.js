@@ -20,18 +20,16 @@ export default function setupServer() {
 function setupExpressApp() {
   let app = express();
 
-  app.engine('hjs', require('consolidate').hogan);
-  app.set('views', path.join(process.cwd(), 'views'));
-  app.set('view engine', 'hjs');
-
   // static files served
   let publicFilesPath = path.join(process.cwd(), 'public');
   let compiledScriptsPath = path.join(process.cwd(), 'dist/browser');
   app.use('/scripts', express.static(compiledScriptsPath));
   app.use('/public', express.static(publicFilesPath));
 
-  // actual pages
-  app.get('/', require('./routes/main'));
+  // actual page
+  app.get('/', function(req, res) {
+    res.sendFile(path.join(process.cwd(), 'views/index.html'));
+  });
 
   return app;
 }
