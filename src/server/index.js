@@ -39,16 +39,15 @@ function setupExpressApp() {
 function setupUnisonServer(wsServer) {
   let unison = require('unison');
   let UnisonWSServer = require('unison-websocket-server');
+  let magnets = require('../magnets');
 
   let $$ = unison({});
   $$.plugin(unison.server({
       communication: new UnisonWSServer(wsServer),
-      commands: require('../magnets/commands'),
-      intents: require('../magnets/intents')
+      commands: magnets.commands,
+      intents: magnets.intents
     }));
-
-  let setupInitialState = require('../magnets/setup-initial-state');
-  setupInitialState($$);
+  magnets.setupState($$);
 
   return $$;
 }

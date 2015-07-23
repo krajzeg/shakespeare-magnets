@@ -1,13 +1,14 @@
 let unison = require('unison');
 let WebsocketComm = require('unison-websocket-browser');
+let magnets = require('../magnets');
 
 let serverUrl = window.location.toString().replace(/https?/, 'ws');
 
 let state = window.$$ = unison({});
 $$.plugin(unison.client({
   communication: new WebsocketComm(serverUrl, {debug: true}),
-  commands: require('../magnets/commands'),
-  intents: require('../magnets/intents')
+  commands: magnets.commands,
+  intents: magnets.intents
 }));
 
 class Magnet {
