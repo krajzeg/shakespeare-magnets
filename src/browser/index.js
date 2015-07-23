@@ -55,17 +55,18 @@ class Magnet {
     this.$div
       .html(state.word)
       .css({
-        left: state.x + "vh",
-        top:  state.y + "vh"
+        left: state.x + "%",
+        top:  state.y + "%"
       });
   }
 
   attemptMove() {
-    let {left, top} = this.$div.position()
-    let leftInVh = left * 100 / $('#magnets').height();
-    let topInVh = top * 100 / $('#magnets').height();
+    let {left, top} = this.$div.position();
+    console.log(left, top);
+    let leftInPct = left * 100 / $('#magnets').width();
+    let topInPct = top * 100 / $('#magnets').height();
 
-    this.node.pleaseMoveTo(leftInVh, topInVh);
+    this.node.pleaseMoveTo(leftInPct, topInPct);
   }
 }
 

@@ -9,6 +9,9 @@
         <script src="/scripts/main.js"></script>
     </head>
     <body>
-        <div id="magnets"></div>
+        <div class="instructions">Drag magnets wherever you want. Double-click a magnet for a new random word.</div>
+        <div id="whiteboard">
+            <div id="magnets"></div>
+        </div>
     </body>
 </html>
