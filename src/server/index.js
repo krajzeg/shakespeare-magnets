@@ -3,8 +3,6 @@ let http = require('http');
 let express = require('express');
 let ws = require('ws');
 
-let unison = require('unison');
-let unisonServerPlugin = require('unison/dist/lib/plugins/server');
 let UnisonWebSocketServer = require('unison-websocket-server');
 
 module.exports = setupExpressApp();
@@ -39,9 +37,12 @@ function setupExpressApp() {
 }
 
 function setupUnisonServer(wsServer) {
-  let $$ = unison({})
-    .plugin(unisonServerPlugin({
-      communication: new UnisonWebSocketServer(wsServer),
+  let unison = require('unison');
+  let UnisonWSServer = require('unison-websocket-server');
+
+  let $$ = unison({});
+  $$.plugin(unison.server({
+      communication: new UnisonWSServer(wsServer),
       commands: require('../magnets/commands'),
       intents: require('../magnets/intents')
     }));
