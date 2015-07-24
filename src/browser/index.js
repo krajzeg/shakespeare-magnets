@@ -5,6 +5,7 @@ let magnets = require('../magnets');
 let serverUrl = window.location.toString().replace(/https?/, 'ws');
 
 let $$ = window.$$ = unison({});
+$$.plugin(unison.views());
 $$.plugin(unison.client({
   communication: new UnisonWS(serverUrl, {debug: true}),
   commands: magnets.commands,
@@ -20,9 +21,9 @@ class Magnet {
   constructor($$magnet) {
     this.node = $$magnet;
     this.$div = this.createElement();
-    this.update();
+    this.updated(); // fake update to create initial state
 
-    $$magnet.on('updated', () => { this.update(); });
+    $$magnet.watch(this)
   }
 
   createElement() {
@@ -49,7 +50,7 @@ class Magnet {
     return $elem;
   }
 
-  update() {
+  updated() {
     let state = this.node.state();
     this.$div
       .html(state.word)
