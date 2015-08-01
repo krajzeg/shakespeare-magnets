@@ -33,7 +33,7 @@
     "vinyl-source-stream": "^1.1.0",
     "ws": "^0.7.2",
 
-    "unison": "krajzeg/unison#v1.0.1",
+    "unison": "krajzeg/unison#v1.1.0",
     "unison-websocket-server": "krajzeg/unison-websocket-server#v1.0.0",
     "unison-websocket-browser": "krajzeg/unison-websocket-browser#v1.0.1"
   }
