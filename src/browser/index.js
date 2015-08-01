@@ -4,26 +4,26 @@ let magnets = require('../magnets');
 
 let serverUrl = window.location.toString().replace(/https?/, 'ws');
 
-let $$ = window.$$ = unison({});
-$$.plugin(unison.views());
-$$.plugin(unison.client({
+let u = window.u = unison({});
+u.plugin(unison.views());
+u.plugin(unison.client({
   communication: new UnisonWS(serverUrl, {debug: true}),
   commands: magnets.commands,
   intents: magnets.intents
 }));
 
 
-$$('magnets').on('childAdded', (id) => {
-  new Magnet($$('magnets').child(id));
+u('magnets').on('childAdded', (id) => {
+  new Magnet(u('magnets').child(id));
 });
 
 class Magnet {
-  constructor($$magnet) {
-    this.node = $$magnet;
+  constructor(uMagnet) {
+    this.node = uMagnet;
     this.$div = this.createElement();
     this.updated(); // fake update to create initial state
 
-    $$magnet.watch(this)
+    uMagnet.watch(this)
   }
 
   createElement() {

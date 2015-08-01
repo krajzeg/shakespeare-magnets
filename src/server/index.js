@@ -39,13 +39,13 @@ function setupUnisonServer(wsServer) {
   let UnisonWSServer = require('unison-websocket-server');
   let magnets = require('../magnets');
 
-  let $$ = unison({});
-  $$.plugin(unison.server({
+  let u = unison({});
+  u.plugin(unison.server({
       communication: new UnisonWSServer(wsServer),
       commands: magnets.commands,
       intents: magnets.intents
     }));
-  magnets.setupState($$);
+  magnets.setupState(u);
 
-  return $$;
+  return u;
 }

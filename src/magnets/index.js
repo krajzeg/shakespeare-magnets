@@ -1,10 +1,10 @@
 let _ = require('lodash');
 
 module.exports = {
-  setupState($$) {
-    $$('').add('magnets', {});
+  setupState(u) {
+    u('').add('magnets', {});
     _.each(_.range(0, 80), () => {
-      $$('magnets').add(randomMagnet());
+      u('magnets').add(randomMagnet());
     });
   },
 
