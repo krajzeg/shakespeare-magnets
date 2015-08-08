@@ -13,8 +13,8 @@ u.plugin(unison.client({
 }));
 
 
-u('magnets').on('childAdded', (id) => {
-  new Magnet(u('magnets').child(id));
+u('magnets').onChild('created', (evt) => {
+  new Magnet(evt.source);
 });
 
 class Magnet {
